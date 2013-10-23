@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;arg0&apos; in &apos;dijkstra.ShortestPath.Node.compareTo(...)&apos; to &apos;n&apos;&#x0A;- Original project: &apos;dijkstra&apos;&#x0A;- Original element: &apos;dijkstra.ShortestPath.Node.compareTo(Node).arg0&apos;&#x0A;- Renamed element: &apos;arg0&apos;&#x0A;- Update references to refactored element" description="Rename local variable &apos;arg0&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;dijkstra{ShortestPath.java[ShortestPath[Node~compareTo~QNode;@arg0!472!480!477!480!QNode;!0!true" name="n" references="true" stamp="1381168251081" version="1.0"/>
+</session>

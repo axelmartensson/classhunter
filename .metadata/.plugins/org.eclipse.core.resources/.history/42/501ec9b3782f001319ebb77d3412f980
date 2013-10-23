@@ -1,0 +1,31 @@
+package dijkstra;
+
+import java.util.LinkedList;
+
+public class ShortestPath {
+
+	private static class Node{
+		Node[] adjacentNodes;
+		Integer[] distances;
+		String data;
+		void adjacent(Node... nodes){
+			adjacentNodes = nodes;
+		}
+		
+		void distance(Integer...integers){
+			distances = integers;
+		}
+	}
+	public static void main(String[] args) {
+		Node a = new Node();
+		Node b = new Node();
+		Node c = new Node();
+		Node d = new Node();
+		Node e = new Node();
+		Node f = new Node();
+		Node g = new Node();
+		Node h = new Node();
+		a.adjacent()
+	}
+
+}

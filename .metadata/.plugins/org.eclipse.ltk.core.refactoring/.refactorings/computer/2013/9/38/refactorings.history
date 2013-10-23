@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Change method &apos;Word computer.Operand.getWord()&apos; to &apos;public Word getWord(Memory memory)&apos;&#x0A;- Original project: &apos;computer&apos;&#x0A;- Original element: &apos;computer.Operand.getWord()&apos;&#x0A;- Added parameters:&#x0A;     Memory memory" default1="null" delegate="false" deprecate="true" description="Change method &apos;getWord&apos;" flags="589830" id="org.eclipse.jdt.ui.change.method.signature" input="/src&lt;computer{Operand.java[Operand~getWord" name="getWord" parameter1="{added} {added} -1 Memory memory false" stamp="1379623312825" version="1.0"/>
+</session>

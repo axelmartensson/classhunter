@@ -1,0 +1,87 @@
+package dijkstra;
+
+import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.PriorityQueue;
+
+public class ShortestPath {
+
+	private static class Node implements Comparable<Node>{
+		Node[] adjacentNodes;
+		Integer[] distances;
+		String data;
+		int shortestDistance = Integer.MAX_VALUE;
+		Node previousNodeInPath; 
+		void adjacent(Node... nodes){
+			adjacentNodes = nodes;
+		}
+		
+		void distance(Integer...integers){
+			distances = integers;
+		}
+
+		@Override
+		public int compareTo(Node n) {
+			return shortestDistance - n.shortestDistance;
+		}
+	}
+	public static void main(String[] args) {
+		Node a = new Node();
+		Node b = new Node();
+		Node c = new Node();
+		Node d = new Node();
+		Node e = new Node();
+		Node f = new Node();
+		Node g = new Node();
+		Node h = new Node();
+
+		a.adjacent(b,c);
+		a.distance(5,8);
+
+		b.adjacent(a,f,h);
+		b.distance(5,2,1);
+
+		c.adjacent(a,f,d);
+		c.distance(8,2,4);
+
+		d.adjacent(c,e,g);
+		d.distance(4,2,6);
+
+		e.adjacent(f,d);
+		e.distance(2,2);
+
+		f.adjacent(b,e,c);
+		f.distance(2,2,2);
+
+		g.adjacent(d,h);
+		g.distance(6,7);
+		
+		h.adjacent(b,g);
+		h.distance(1,7);
+		
+		PriorityQueue<Node> unvisited = 
+				new PriorityQueue<Node>(Arrays.asList(a,b,c,d,e,f,g,h));
+		computeShortestDistance(a, unvisited);
+		System.out.println(g.shortestDistance);
+	}
+	private static void computeShortestDistance(Node a,
+			PriorityQueue<Node> unvisited) {
+		a.shortestDistance = 0;
+		Node n = unvisited.remove();
+		if(a == n){
+			throw new RuntimeException("fail");
+		}
+		while(!unvisited.isEmpty()){
+			n= unvisited.remove();
+			for(int i = 0; i<n.adjacentNodes.length;i++){
+				Node neighbor = n.adjacentNodes[i];
+				int distanceToNeighbor = n.distances[i];
+				int totalDistance = n.shortestDistance + distanceToNeighbor;
+				if(totalDistance<neighbor.shortestDistance){
+					neighbor.shortestDistance = totalDistance;
+				}
+			}
+		}
+	}
+
+}

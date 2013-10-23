@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;codePeg&apos; in &apos;ovning1.Pattern&apos; to &apos;codePegs&apos;&#x0A;- Original project: &apos;ovning1&apos;&#x0A;- Original element: &apos;ovning1.Pattern.codePeg&apos;&#x0A;- Renamed element: &apos;ovning1.Pattern.codePegs&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="true" description="Rename field &apos;codePeg&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;ovning1{Pattern.java[Pattern^codePeg" name="codePegs" references="true" setter="false" stamp="1378475888389" textual="false" version="1.0"/>
+</session>

@@ -1,0 +1,27 @@
+{
+  "/home/axel/Dropbox/Skolarbete/edaf10-omd/lab1/src": {
+    "location": "/home/axel/Dropbox/Skolarbete/edaf10-omd/lab1/src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/home/axel/Dropbox/Skolarbete/edaf10-omd/lab1/src\u0027. Skipped."
+  },
+  "/home/axel/Dropbox/Skolarbete/edaf10-omd/computer/src": {
+    "location": "/home/axel/Dropbox/Skolarbete/edaf10-omd/computer/src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/home/axel/Dropbox/Skolarbete/edaf10-omd/computer/src\u0027. Skipped."
+  },
+  "/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/rt.jar": {
+    "coordinate": "jre:jre:zip:call:1.0.0",
+    "location": "/usr/lib/jvm/java-6-openjdk-amd64/jre/lib/rt.jar",
+    "status": "RESOLVED"
+  },
+  "/home/axel/Dropbox/Skolarbete/edaf10-omd/classhunter/src": {
+    "location": "/home/axel/Dropbox/Skolarbete/edaf10-omd/classhunter/src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/home/axel/Dropbox/Skolarbete/edaf10-omd/classhunter/src\u0027. Skipped."
+  },
+  "/home/axel/Dropbox/Skolarbete/edaf10-omd/xl/src": {
+    "location": "/home/axel/Dropbox/Skolarbete/edaf10-omd/xl/src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027/home/axel/Dropbox/Skolarbete/edaf10-omd/xl/src\u0027. Skipped."
+  }
+}

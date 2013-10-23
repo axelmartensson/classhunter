@@ -1,0 +1,4 @@
+1381786310061	Extract method 'addColumnIdentifiers'
+1381786351900	Extract method 'addSlots'
+1381786757525	Rename method 'addSlots'
+1381788307721	Extract method 'addColumnNumbers'

@@ -1,0 +1,68 @@
+package test;
+
+import static org.junit.Assert.*;
+
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.LinkedList;
+import java.util.List;
+
+import org.junit.Before;
+import org.junit.Test;
+
+import classhunter.Classhunter;
+import classhunter.ImportStatement;
+
+public class ClasshunterTest {
+	
+	private Classhunter classHunter;
+	@Before
+	public void setUp() throws Exception {
+		List<ImportStatement> list = new LinkedList<ImportStatement>();
+		list.add(new ImportStatement("com.axel.Axel"));
+		list.add(new ImportStatement("com.johan.*"));
+		list.add(new ImportStatement("Axel"));
+		list.add(new ImportStatement("sub.Add"));
+		list.add(new ImportStatement("java.io.File"));
+		classHunter = new Classhunter("test", "com.axel", list);
+	}
+
+	@Test
+	public void testFindFqdn() throws FileNotFoundException {
+		File actual = classHunter.find("com.axel.Axel");
+		File expected = new File("test/com/axel/Axel.java");
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testFindSamePackage() throws FileNotFoundException {
+		File actual = classHunter.find("Axel");
+		File expected = new File("test/com/axel/Axel.java");
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testFindSubPackage() throws FileNotFoundException {
+		File actual = classHunter.find("Add");
+		File expected = new File("test/com/axel/sub/Add.java");
+		assertEquals(expected, actual);
+	}
+
+	@Test
+	public void testFindNotUserClass() {
+		try {
+			File actual = classHunter.find("File");
+		} catch(FileNotFoundException e) {
+			assertTrue(true);
+			return;
+		}
+			assertTrue(false);
+	}
+
+	@Test
+	public void testFindAsteriskedImport() throws FileNotFoundException {
+		File actual = classHunter.find("Johan");
+		File expected = new File("test/com/johan/Johan.java");
+		assertEquals(expected, actual);
+	}
+}

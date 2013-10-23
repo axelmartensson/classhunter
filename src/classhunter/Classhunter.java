@@ -5,36 +5,34 @@ import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.util.List;
 
+
 public class Classhunter {
 	private String rootDir;
-	private ImportStatement packageContext;
-	private List<ImportStatement> importStatements;
+	private HuntableImportStatement packageContext;
+	private List<HuntableImportStatement> importStatements;
 
 	public Classhunter(String rootDir, String packageContext,
-			List<ImportStatement> importStatements) {
+			List<HuntableImportStatement> importStatements) {
 		if(!rootDir.endsWith("/")){
 			rootDir += "/";
 		}
 		this.rootDir = rootDir;
-		this.packageContext = new ImportStatement(packageContext);
+		this.packageContext = new SimpleImportStatement(packageContext);
 		this.importStatements = importStatements;
 	}
 
-	public File find (String className) throws FileNotFoundException{
+	public File find (String className) {
 		File f = findInDirectReferences(className);
 		if (f == null){
 			f = findInAsteriskedImports(className);
 		}
-		if (f == null){
-			throw new FileNotFoundException();
-		}
 		return f;
 	}
 	private File findInAsteriskedImports(String className) {
-		for (ImportStatement stmt : importStatements) {
+		for (HuntableImportStatement stmt : importStatements) {
 			if(stmt.hasAsterisk()){
-				ImportStatement maybeStmt = new ImportStatement(stmt.toString().replace('*', '/')+
-						new ImportStatement(className).toPath());
+				HuntableImportStatement maybeStmt = new SimpleImportStatement(stmt.toString().replace('*', '/')+
+						new SimpleImportStatement(className).toPath());
 				File f = convertToFile(maybeStmt);
 				if(f != null){
 					return f;
@@ -45,7 +43,7 @@ public class Classhunter {
 	}
 
 	private File findInDirectReferences(String className){
-		for (ImportStatement stmt : importStatements) {
+		for (HuntableImportStatement stmt : importStatements) {
 			if(stmt.endsWith(className)){
 				return convertToFile(stmt);
 			}
@@ -53,7 +51,7 @@ public class Classhunter {
 		return null;
 	}
 
-	private File convertToFile(ImportStatement stmt ) {
+	private File convertToFile(HuntableImportStatement stmt ) {
 		File f = null;
 		String statementPath = stmt.toPath();
 		f = new File(rootDir+statementPath + ".java");

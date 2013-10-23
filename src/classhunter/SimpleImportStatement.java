@@ -1,20 +1,24 @@
 package classhunter;
 
-public class ImportStatement {
+
+public class SimpleImportStatement implements HuntableImportStatement {
 	private String qualifier;
 	
-	public ImportStatement(String qualifier) {
+	public SimpleImportStatement(String qualifier) {
 		this.qualifier = qualifier;
 	}
 
-	boolean hasAsterisk() {
+	@Override
+	public boolean hasAsterisk() {
 		return qualifier.endsWith("*");
 	}
 
+	@Override
 	public boolean endsWith(String className) {
 		return qualifier.endsWith(className);
 	}
 
+	@Override
 	public String toPath() {
 		String path = qualifier.replace('.','/');
 		if(hasAsterisk()){
@@ -24,6 +28,7 @@ public class ImportStatement {
 		}
 	}
 	
+	@Override
 	public String toString(){
 		return qualifier;
 	}
